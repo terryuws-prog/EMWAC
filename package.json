@@ -1,0 +1,12 @@
+{
+  "name": "emwac",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "pnpm --filter @emwac/web dev",
+    "build": "pnpm --filter @emwac/web build",
+    "lint": "pnpm --filter @emwac/web lint",
+    "test": "pnpm --filter @emwac/web test",
+    "e2e": "pnpm --filter @emwac/web e2e"
+  }
+}

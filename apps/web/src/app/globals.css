@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #0f172a;
+}
+
+/* Flowing water wave animations */
+@keyframes wave-flow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-wave-flow-1 { animation: wave-flow 12s linear infinite; }
+.animate-wave-flow-2 { animation: wave-flow 8s linear infinite; }
+.animate-wave-flow-3 { animation: wave-flow 6s linear infinite; }
+.animate-wave-flow-4 { animation: wave-flow 10s linear infinite reverse; }
+
+.page-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.page-panel {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  padding: 1.25rem;
+}
