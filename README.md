@@ -27,21 +27,24 @@ This project can be deployed as a Portainer stack from a Git repository.
 1. Push this repository to GitHub.
 2. In Portainer, open the target environment.
 3. Go to `Stacks` -> `Add stack` -> `Git repository`.
-4. Set the repository URL, branch, and compose path:
+4. To deploy only the internal EMWAC service, set the compose path:
 
 ```text
 docker-compose.yml
 ```
 
-5. Deploy the stack.
-
-The stack builds the Next.js app from `Dockerfile` and exposes the container
-on port `3000` by default. To use a different host port in Portainer, set this
-environment variable before deploying:
+5. To deploy the production reverse-proxy stack that serves both apps, set the compose path:
 
 ```text
-EMWAC_WEB_PORT=3003
+CAMATHERN2/docker-compose.yml
 ```
+
+6. Deploy the stack.
+
+The root stack builds the Next.js app from `Dockerfile` and exposes port `3000`
+only inside Docker. The production proxy stack is the only public listener on
+host port `3000`; it routes `/` to the new EMWAC service and `/cam/` plus the
+legacy `/carmarthenshire/` path to CAMATHERN2.
 
 If the Portainer environment is Docker Swarm, build the image in CI or locally,
 push it to a registry, and replace the `build` section in `docker-compose.yml`
