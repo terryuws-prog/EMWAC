@@ -5,8 +5,8 @@ services:
       dockerfile: Dockerfile
     image: emwac-web:latest
     restart: unless-stopped
-    ports:
-      - "${EMWAC_WEB_PORT:-3000}:3000"
+    expose:
+      - "3000"
     environment:
       NODE_ENV: production
       NEXT_TELEMETRY_DISABLED: "1"
